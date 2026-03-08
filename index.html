@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ~~~~~~~~~~~~~font awsom cdn~~~~~~~~~~~~~~~~~ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ~~~~~~~~~~~~~~~~~google fonts~~~~~~~~~~~~~~~~~~~ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- ~~~~~~~~~~daisyui and tailwind cdn~~~~~~~~~~~~~~ -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- ~~~~~~~~~css link~~~~~~~~~~~ -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ~~~~~~~~~~~~~~~~~favicon icon cdn~~~~~~~~~~~~~~~~ -->
+    <link rel="shortcut icon" href="./assets/Aperture.png" type="image/x-icon">
+
+    <!-- ~~~~~~~~~~~tittle~~~~~~~~~~~~~~ -->
+    <title>GitHub Issues Tracker | Login</title>
+
+  </head>
+
+  <body>
+    <div id="loginPage" class="login-bg min-h-screen flex items-center justify-center p-4">
+      <div class="bg-gh-surface border border-gh-border rounded-xl px-5 py-5 w-full max-w-[400px] shadow-login">
+
+        <!-- Logo -->
+        <div class="mx-auto space-y-1">
+          <img src="./assets/github-logo.png" alt="logo" class="mx-auto">
+          <h2 class="text-[#1F2937] text-center text-2xl font-semibold">GitHub Issues Tracker</h2>
+          <p class="text-[#64748B] text-center">Sign in to manage your issues</p>
+        </div>
+
+        <fieldset class="fieldset rounded-box w-xs  p-4">
+          <label class="label text-[#1F2937] font-medium text-base ">Username</label>
+          <input type="text" id="login-username" value="admin" class="input" placeholder="Enter Username" />
+
+          <label class="label text-[#1F2937] font-medium text-base ">Password</label>
+          <input type="password" value="admin123" id="login-pin" class="input" placeholder="Enter Password" />
+
+          <button id="btn-login" class="btn btn-primary mt-4">Login</button>
+        </fieldset>
+
+        <!-- Demo Credentials -->
+        <div class="mt-5 bg-blue-50 border border-blue-100 rounded-lg px-4 py-3">
+          <p class="text-xs font-semibold text-gh-subtle mb-1.5">🔑 Demo Credentials</p>
+          <span class="font-mono text-xs text-gh-blue block">Username: admin</span>
+          <span class="font-mono text-xs text-gh-blue block">Password: admin123</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="script/login.js"></script>
+  </body>
+
+</html>
