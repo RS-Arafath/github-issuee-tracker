@@ -40,3 +40,32 @@ const colors = ["red", "blue"];
 colors.push("green"); // its work;git
 // colors = ["yellow"]; // Error: Assignment to constant variable
 ```
+
+# 2️⃣ What is the spread operator (...)?
+## Spread Operator (...)
+
+The **spread operator (`...`)** is used to **expand or unpack elements** from an array, object, or iterable into individual items.
+
+### Example with Array
+```javascript
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4, 5];
+console.log(newNumbers);
+// [1, 2, 3, 4, 5]
+```
+
+### Example with Object
+```javascript
+const user = { name: "Arafath", age: 22 };
+const updatedUser = {
+  ...user,
+  country: "Bangladesh"
+};
+console.log(updatedUser);
+// { name: "Arafath", age: 20, country: "Bangladesh" }
+```
+
+### Common Uses
+- Copy arrays or objects
+- Merge arrays or objects
+- Add new elements or properties
