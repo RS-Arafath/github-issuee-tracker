@@ -214,3 +214,11 @@ console.log(text);
 - Uses **backticks (` `)** instead of `' '` or `" "`
 - Allows **variable interpolation** using `${}`
 - Supports **multi-line strings**
+---
+
+## 📄 License
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+> Built with ❤️ and deployed on Vercel.
