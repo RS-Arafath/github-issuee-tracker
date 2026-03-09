@@ -117,6 +117,72 @@ numbers.forEach(num => {
 ### Quick Difference
 | Method   | Returns New Array | Main Use |
 |---------|------------------|---------|
-| map()   | ✅ Yes | Transform elements |
-| filter()| ✅ Yes | Select elements |
-| forEach()| ❌ No | Execute code for each item |
+| map()   |  Yes | Transform elements |
+| filter()|  Yes | Select elements |
+| forEach()|  No | Execute code for each item |
+
+---
+
+# 4️⃣ What is an arrow function?
+
+An **arrow function** is a shorter way to write functions in JavaScript.  
+It uses the **`=>` (arrow) syntax** and makes the code more concise.
+
+### Example
+```javascript
+const greet = () => {
+  console.log("Hello");
+};
+greet();
+```
+
+### With Parameters
+```javascript
+const add = (a, b) => {
+  return a + b;
+};
+console.log(add(2, 3));
+// 5
+```
+
+### Short Form 
+
+```javascript
+const multiply = (a, b) => a * b;
+console.log(multiply(3, 4));
+// 12
+```
+
+### Key Points
+- Uses `=>` instead of the `function` keyword  
+- Shorter and cleaner syntax  
+- Often used in **callbacks and array methods**
+---
+
+# 5️⃣ What are template literals?
+
+**Template literals** are a way to write strings in JavaScript using **backticks (` `)** instead of quotes.  
+They allow you to **embed variables and expressions inside a string easily**.
+
+### Example
+```javascript
+const name = "Arafath";
+const message = `Hello, ${name}!`;
+console.log(message);
+// Hello, Arafath!
+```
+
+### Multiple Lines
+Template literals also support **multi-line strings**.
+
+```javascript
+const text = `This is line one
+This is line two
+This is line three`;
+console.log(text);
+```
+
+### Key Points
+- Uses **backticks (` `)** instead of `' '` or `" "`
+- Allows **variable interpolation** using `${}`
+- Supports **multi-line strings**

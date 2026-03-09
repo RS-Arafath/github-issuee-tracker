@@ -286,5 +286,9 @@ const searchBtnIssues = document
       });
   });
 
+// ~~~~~~~~~~call function~~~~~~
 allIssuesApi();
 showFilterIssueBtn('all-btn');
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~END~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
