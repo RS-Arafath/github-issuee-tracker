@@ -132,7 +132,7 @@ function displayShowModal(card) {
 
   modalContainer.appendChild(div);
 
-  
+  document.getElementById('modal_card').showModal();
 }
 
 
