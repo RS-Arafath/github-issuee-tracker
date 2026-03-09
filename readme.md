@@ -1,3 +1,31 @@
+ # 📌 Description
+
+GitHub Issues Tracker is a front-end web app that lets you create, view, and manage project issues in a familiar GitHub-style dashboard. Whether you're managing a personal project or keeping tabs on a small team's bugs and tasks, this tool gives you a simple and focused interface to stay organized.
+
+**Live Demo:** [github-issuee-tracker.vercel.app](https://github-issuee-tracker.vercel.app/)
+
+---
+
+## ✨ Features
+
+- 📋 **Issue Dashboard** — View all your issues in one place
+- ➕ **Create New Issues** — Quickly add new issues with a single click
+- 🔍 **Filter by Status** — Toggle between All, Open, and Closed issues
+- 📊 **Issue Count Display** — See at a glance how many issues exist
+- 🎨 **GitHub-inspired UI** — Familiar and intuitive design
+
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5** — Page structure
+- **CSS3** — Styling and layout
+- **JavaScript** — Dynamic behavior and state management
+- **Vercel** — Deployment and hosting
+---
+
+# Answering Some Question:-
+
 # 1️⃣ What is the difference between var, let, and const?
 
 ## JavaScript Variable Declarations: var, let, and const
