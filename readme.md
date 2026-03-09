@@ -40,7 +40,7 @@ const colors = ["red", "blue"];
 colors.push("green"); // its work;git
 // colors = ["yellow"]; // Error: Assignment to constant variable
 ```
-
+---
 # 2️⃣ What is the spread operator (...)?
 ## Spread Operator (...)
 
@@ -69,3 +69,54 @@ console.log(updatedUser);
 - Copy arrays or objects
 - Merge arrays or objects
 - Add new elements or properties
+
+---
+
+# 3️⃣ Difference between map(), filter(), and forEach()
+
+These three methods are used to work with arrays in JavaScript.
+
+### map()
+- Creates a **new array**
+- Transforms each element
+
+```javascript
+const numbers = [1, 2, 3];
+
+const doubled = numbers.map(num => num * 2);
+
+console.log(doubled);
+// [2, 4, 6]
+```
+
+### filter()
+- Creates a **new array**
+- Returns elements that **match a condition**
+
+```javascript
+const numbers = [1, 2, 3, 4];
+
+const even = numbers.filter(num => num % 2 === 0);
+
+console.log(even);
+// [2, 4]
+```
+
+### forEach()
+- **Does not create a new array**
+- Used to **run a function for each element**
+
+```javascript
+const numbers = [1, 2, 3];
+
+numbers.forEach(num => {
+  console.log(num);
+});
+```
+
+### Quick Difference
+| Method   | Returns New Array | Main Use |
+|---------|------------------|---------|
+| map()   | ✅ Yes | Transform elements |
+| filter()| ✅ Yes | Select elements |
+| forEach()| ❌ No | Execute code for each item |
