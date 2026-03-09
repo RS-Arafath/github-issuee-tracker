@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ~~~~~~~~~~~~~font awsom cdn~~~~~~~~~~~~~~~~~ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- ~~~~~~~~~~~~~~~~~google fonts~~~~~~~~~~~~~~~~~~~ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- ~~~~~~~~~~daisyui and tailwind cdn~~~~~~~~~~~~~~ -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- ~~~~~~~~~css link~~~~~~~~~~~ -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ~~~~~~~~~~~~~~~~~favicon icon cdn~~~~~~~~~~~~~~~~ -->
+    <link rel="shortcut icon" href="./assets/Aperture.png" type="image/x-icon">
+
+    <!-- ~~~~~~~~~~~tittle~~~~~~~~~~~~~~ -->
+    <title>GitHub Issues Tracker | Dashboard</title>
+
+  </head>
+
+  <body>
+
+    <!-- ~~~~~~~~~~~~header section~~~~~~~~~~~~~ -->
+    <header class="z-50 sticky top-0 ">
+      <!-- ~~~~~~~~~~nav bar~~~~~~~~~~ -->
+      <nav class="border-b px-5 border-gray-300 bg-white/70 backdrop-blur-md shadow-sm">
+        <div class="nav-container flex justify-between items-center py-4  flex-col md:flex-row">
+
+          <div class="nav-logo flex gap-3 items-center mt-3 md:mt-0 mb-5 md:mb-0">
+            <img class="h-9 w-9 " src="./assets/github-logo.png" alt="GitHub_Logo">
+            <h2 class="text-2xl font-semibold ">GitHub Issues Tracker</h2>
+          </div>
+
+          <!-- ~~~~~~~~~~~~~search box~~~~~~~~~~~~~ -->
+          <div class="flex gap-3">
+            <label class="input outline-none">
+              <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </g>
+              </svg>
+              <input class=" md:w-[63px] lg:w-auto" id="search-issue" type="search" placeholder="Search issues..." />
+            </label>
+
+            <button id="search-issue-btn" class="btn btn-primary 
+                                      hover:opacity-90 transition text-white text-[14px] px-8"><i
+                class="fa-solid fa-plus"></i>New Issue</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~main section~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <main class="">
+      <!-- ~~~~~~~~~~~~all filter button section~~~~~~~~~~~~~~~ -->
+      <section class=" w-11/12 mx-auto  pt-3 md:pt-[clamp(2rem,5vw,2.75rem)] mb-4">
+        <div class="my-container mx-auto rounded-md flex gap-4 p-6  shadow-md flex-wrap ">
+
+          <button onclick="showFilterIssueBtn('all-btn'); filterIssues('all')" id="all-btn"
+            class="btn  text-sm sm:px-11 w-[46%] sm:w-auto">
+            All
+          </button>
+
+          <button onclick="showFilterIssueBtn('open-btn'); filterIssues('open')" id="open-btn"
+            class="btn text-[14px] sm:px-10  w-[46%] sm:w-auto">
+            Open
+          </button>
+
+          <button onclick="showFilterIssueBtn('close-btn'); filterIssues('closed')" id="close-btn"
+            class="btn text-sm sm:px-9 w-full sm:w-auto">
+            Closed
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ~~~~~~~all card issue section~~~~~~~~~~ -->
+      <section class="">
+        <!-- ~~~~~~issue  count section~~~~~  -->
+        <div class="my-container rounded-t-xl w-11/12 mx-auto border-b shadow-sm border-gray-200">
+
+          <div class=" px-5 rounded-md flex items-center justify-between py-4 flex-col sm:flex-row ">
+            <div class="flex gap-3  mb-4 md:mb-0 ">
+              <div class="w-[50px] h-[50px] rounded-full bg-[#ece4ff] flex justify-center items-center">
+                <img src="./assets/Aperture.png" alt="">
+              </div>
+              <div>
+                <h2 class="text-xl font-semibold">
+                  <span id="issue-count" class="inline-block">0</span> Issues
+                </h2>
+                <p class="text-gray-500">Track and manage your project issues</p>
+              </div>
+            </div>
+
+            <!-- ~~~~~Open closed icon~~~~~~ -->
+            <div class="flex gap-3 items-center">
+              <p class="font-semibold"><span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+                Open</p>
+              <p class="font-semibold"><span class="w-3 h-3 rounded-full bg-[#a855f7] inline-block"></span>
+                Closed</p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ~~~~~~~all card container~~~~~~~~~~ -->
+        <div class=" my-container w-11/12 mx-auto bg-white shadow-sm justify-between ">
+
+          <!-- ~~~~~~~all card parent~~~~~~~-->
+          <div id="issue-all-card"
+            class="py-7 grid px-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-stretch">
+            <!-- ~~~~~~~~all card render here~~~~~~~ -->
+          </div>
+
+          <!-- ~~~~~~~~~~loading spinner~~~~~~~~~~ -->
+          <div id="spinner-container" class=" flex justify-center items-center py-30 hidden">
+            <span class="loading loading-spinner text-primary"></span>
+          </div>
+        </div>
+
+
+        <!-- ~~~~~~~~~~modal pop up card~~~~~~~~~~~~~ -->
+        <dialog id="modal_card" class="modal modal-middle">
+          <div id="modal_container" class="modal-box space-y-3 max-w-[clamp(20rem,90vw,43.75rem)]">
+            <!-- modal content -->
+          </div>
+        </dialog>
+      </section>
+    </main>
+
+
+    <script src="./script/home.js"></script>
+  </body>
+
+</html>
