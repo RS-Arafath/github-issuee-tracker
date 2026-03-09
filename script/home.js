@@ -45,7 +45,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // remove spinner function
-
+function removeSpinner(status) {
+  if (status == true) {
+    document.getElementById('spinner-container').classList.remove('hidden');
+    document.getElementById('issue-all-card').classList.add('hidden');
+  } else {
+    document.getElementById('spinner-container').classList.add('hidden');
+    document.getElementById('issue-all-card').classList.remove('hidden');
+  }
+}
 
 // all card  access
 const allActiveCard = async (id) => {
@@ -55,11 +63,11 @@ const allActiveCard = async (id) => {
   displayShowModal(data.data);
 };
 
-// modal function
-
+//m
 
 
 //~~~loop chaliye lavel gula niye noton array baniye string kore return~~~
+
 const bugAndHelpLabels = (labels) => {
   let newArr = labels.map((label) => {
     let icon = '';
@@ -186,8 +194,27 @@ function filterIssues(status) {
 }
 
 // search issue function 
+const searchBtnIssues = document
+  .getElementById('search-issue-btn')
+  .addEventListener('click', () => {
+    const searchIssues = document.getElementById('search-issue');
+    let issuesInputValue = searchIssues.value.trim().toLowerCase();
+    removeSpinner(true);
+    fetch(
+      `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${issuesInputValue}`,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const allData = data.data;
 
+        const issueSearch = allData.filter((issue) =>
+          issue.title.toLowerCase().includes(issuesInputValue),
+        );
 
+        displayAllIssuesData(issueSearch);
+        removeSpinner(false);
+      });
+  });
 
 allIssuesApi();
 showFilterIssueBtn('all-btn');
