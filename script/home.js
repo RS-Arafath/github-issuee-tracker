@@ -63,7 +63,77 @@ const allActiveCard = async (id) => {
   displayShowModal(data.data);
 };
 
-//m
+//modal function
+function displayShowModal(card) {
+  // console.log(card)
+  const modalContainer = document.getElementById('modal_container');
+  modalContainer.innerHTML = '';
+
+  const div = document.createElement('div');
+  div.innerHTML = `
+                        <div class="space-y-6   rounded-md p-4 ${card.status === 'closed' ? 'border-[#a855f7]' : 'border-[#22b780]'}">
+
+                          <div>
+                              <h2 class="font-semibold text-2xl mb-2">${card.title}</h2>
+              
+                              <div class="flex items-center gap-2 flex-wrap sm:flex">
+                               <p class="text-sm px-3 py-[2px] text-white rounded-2xl font-semibold
+                                         ${card.status === 'closed' ? 'bg-[#a855f7]' : 'bg-[#22b780]'}">
+                                         ${card.status}
+                                         </p>
+                                  <span class="w-[9px] h-[9px] rounded-full bg-gray-500"></span>
+                                  <p class="text-sm text-[#64748b]">Opened by ${card.author}</p>
+                                  <span class="w-[9px] h-[9px] rounded-full bg-gray-500"></span>
+                                  <p class="text-sm text-[#64748b]">
+                                      ${new Date(card.createdAt).toLocaleDateString()}
+                                  </p>
+                              </div>
+                          </div>
+              
+                          <div class="flex flex-wrap gap-3">
+                              ${bugAndHelpLabels(card.labels)}
+                          </div>
+              
+                          <p class="text-[15px] text-[#64748b]">
+                              ${card.description}
+                          </p>
+              
+                          <div class="bg-[#f8fafc] flex p-4 rounded-lg">
+                              <div class="w-[50%] space-y-1">
+                                  <p class="text-[#64748b]">Assignee:</p>
+                                  <p class="font-bold">${card.assignee.toUpperCase()}</p>
+                              </div>
+              
+                              <div class="w-[50%] space-y-2">
+                                  <p class="text-[#64748b]">Priority:</p>
+                                   <p class="text-sm px-3 py-0.5 text-white inline-block rounded-2xl ${
+                                     card.priority === 'high'
+                                       ? 'bg-red-600'
+                                       : card.priority === 'medium'
+                                         ? 'bg-yellow-500'
+                                         : 'bg-gray-500'
+                                   }">
+                                           ${card.priority.toUpperCase()}
+                                           </p>
+                                                                                                     </div>
+                          </div>
+              
+                          <div class="modal-action">
+                              <form method="dialog">
+                                  <button class="btn btn-primary
+                                       text-white px-7 rounded-md">Close</button>
+                              </form>
+                          </div>
+              
+                      </div>
+              
+
+                      `;
+
+  modalContainer.appendChild(div);
+
+  
+}
 
 
 //~~~loop chaliye lavel gula niye noton array baniye string kore return~~~
